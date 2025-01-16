@@ -24,7 +24,7 @@ export const Hero = ({
             {data.LinkOutButton && (
               <div>
                 <Link href={data.LinkOutButton.Url} target={data.LinkOutButton.Is_External ? "_blank" : ""}>
-                  <Button variant={"default"} size={"lg"} className="px-10">
+                  <Button variant={"default"} size={"lg"} className="px-10 hover-effect">
                       {data.LinkOutButton.Label}
                   </Button>
                 </Link>

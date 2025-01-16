@@ -1,12 +1,12 @@
 import { cache } from "react";
+import { Metadata } from "next";
+import { notFound } from "next/navigation";
 
 import { Container } from "@/components/container";
 import { Hero } from "@/components/hero";
 import { CategorySearch } from "@/features/categories/components/category-search";
-import { DoctorList } from "@/features/doctors/components/doctor-list";
 import { getHomePage } from "@/shared/utils/api-get-home-page";
-import { Metadata } from "next";
-import { notFound } from "next/navigation";
+import { DoctorListWrapper } from "@/app/(public)/_components/doctor-list-wrapper";
 
 
 export const generateMetadata = async() : Promise<Metadata> => {
@@ -31,13 +31,13 @@ export default async function Home() {
   const homePageData = await getHomePageData();
   if(!homePageData) return notFound();
 
-  const [ heroSecion ] = homePageData.Hero_Section;
+  const [ heroSection ] = homePageData.Hero_Section;
 
   return (
     <Container>
-      {homePageData && <Hero data={heroSecion}/>}
+      {homePageData && <Hero data={heroSection}/>}
       <CategorySearch/>
-      <DoctorList/>
+      <DoctorListWrapper/>
     </Container>
   );
 }
