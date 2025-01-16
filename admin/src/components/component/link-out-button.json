@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_component_link_out_buttons",
+  "info": {
+    "displayName": "Link Out Button"
+  },
+  "options": {},
+  "attributes": {
+    "Label": {
+      "type": "string"
+    },
+    "Is_External": {
+      "type": "boolean",
+      "default": false
+    },
+    "Url": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

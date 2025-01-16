@@ -1,0 +1,13 @@
+@keyframes slideDown {
+    from {
+      transform: translateY(-100%);
+    }
+    to {
+      transform: translateY(0);
+    }
+}
+
+.stickyNav {
+    @apply fixed shadow-md z-20;
+    animation: slideDown 0.3s ease-out;
+}

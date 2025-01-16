@@ -39,3 +39,20 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+
+#### ADMIN
+/admin/node_modules
+/.pnp
+/admin.pnp.*
+/admin.yarn/*
+!/admin.yarn/patches
+!/admin.yarn/plugins
+!/admin.yarn/releases
+!/admin.yarn/versions
+/admin/coverage
+/admin/.next/
+/admin/build
+/admin/.env*
+/admin/.vercel
+/admin/*.tsbuildinfo
