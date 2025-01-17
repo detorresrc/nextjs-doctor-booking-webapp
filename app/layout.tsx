@@ -6,6 +6,7 @@ import "./globals.css";
 import { Header } from "@/components/header";
 import { QueryProviders } from "@/shared/providers/query-providers";
 import { Footer } from "@/components/footer";
+import { AuthProvider } from "@/shared/providers/auth-provider";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -22,16 +23,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='en'>
-      <body className={`${outfit.className} antialiased`}>
-        <QueryProviders>
-          <div>
-            <Header />
-            {children}
-            <Footer />
-          </div>
-        </QueryProviders>
-      </body>
-    </html>
+    <AuthProvider>
+      <html lang='en'>
+        <body className={`${outfit.className} antialiased`}>
+          <QueryProviders>
+            <div>
+              <Header />
+              {children}
+              <Footer />
+            </div>
+          </QueryProviders>
+        </body>
+      </html>
+    </AuthProvider>
   );
 }

@@ -39,7 +39,7 @@ export const CategoryList = () => {
               <CommandItem key={category.documentId}>
                 <Link
                   className={cn(
-                    "w-full flex flex-row gap-2 p-2 text-blue-600 text-[14px] hover-effect",
+                    "w-full flex flex-row gap-2 p-2 text-blue-600 text-[14px] hover-effect-sm",
                     (category.Name.toLowerCase()==categoryParam.toLowerCase()) && "bg-blue-50"
                   )}
                   href={`/search/${category.Name.toLowerCase()}`}>

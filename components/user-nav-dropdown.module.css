@@ -1,0 +1,15 @@
+.usernavdropdown {
+  @apply w-full flex flex-col items-center justify-center gap-2;
+
+  div {
+    @apply w-full flex flex-col items-center justify-center gap-0;
+
+    ul {
+      @apply w-full flex flex-col items-start justify-start gap-2;
+
+      li {
+        @apply w-full hover:bg-slate-100 rounded-md p-2 cursor-pointer flex flex-row items-center justify-start gap-2; 
+      }
+    }
+  }
+}

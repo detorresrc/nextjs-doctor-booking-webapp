@@ -2,17 +2,28 @@
 
 import Image from "next/image";
 import React, { useRef } from "react";
-import useDetectScroll, { Direction } from "@smakss/react-scroll-direction";
+import useDetectScroll from "@smakss/react-scroll-direction";
+import {
+  LoginLink,
+  useKindeBrowserClient,
+} from "@kinde-oss/kinde-auth-nextjs";
+import Link from "next/link";
+import { LogInIcon } from "lucide-react";
 
 import styles from "@/components/header.module.css";
 
 import logo from "@/public/logo.svg";
 import { Button } from "./ui/button";
-import Link from "next/link";
 import { cn } from "@/lib/utils";
+import { UserNavDropdown } from "./user-nav-dropdown";
 
 export const Header = () => {
   const { scrollPosition } = useDetectScroll();
+  const {
+    isLoading: isLoadingAuth,
+    isAuthenticated,
+    user,
+  } = useKindeBrowserClient();
 
   const parentHeaderRef = useRef<HTMLDivElement>(null);
   const height = parentHeaderRef.current?.offsetHeight;
@@ -59,7 +70,21 @@ export const Header = () => {
             ))}
           </ul>
         </div>
-        <Button>Get Started</Button>
+        {!isLoadingAuth && (
+          <div className='flex items-center justify-end gap-2'>
+            {isAuthenticated && (<UserNavDropdown user={user}/>)}
+            <div>
+              {!isAuthenticated && (
+                <LoginLink postLoginRedirectURL='/'>
+                  <Button variant={"outline"} className="bg-primary text-accent">
+                    <LogInIcon className="size-4"/>
+                    Sign In
+                  </Button>
+                </LoginLink>
+              )}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
