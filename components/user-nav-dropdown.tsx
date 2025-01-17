@@ -28,7 +28,7 @@ export const UserNavDropdown = ({
             width={50}
             height={50}
             alt={user?.family_name || "Profile Picture"}
-            className='rounded-full'
+            className='rounded-full hover-effect'
           />
         </PopoverTrigger>
         <PopoverContent className='w-80'>
