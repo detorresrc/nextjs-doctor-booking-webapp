@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { Doctor as DoctorType } from '../utils/api-types'
 import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 
 interface Props {
   doctor: DoctorType
@@ -41,9 +42,12 @@ export const Doctor = ({
         <h2 className='text-gray-500 text-sm line-clamp-2'>{doctor.Address}</h2>
 
         <div className='w-full flex flex-row justify-center items-center pt-4'>
-          <Button variant='outline' className='w-11/12 hover-effect'>
-            Book Now
-          </Button>
+          <Link
+            href={`/doctors/${doctor.Name.toLowerCase()}/${doctor.documentId}`}>
+            <Button variant='outline' className='w-11/12 hover-effect'>
+              Book Now
+            </Button>
+          </Link>
         </div>
       </div>
     </div>

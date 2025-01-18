@@ -84,8 +84,14 @@ export const DoctorsResponseSchema = z.object({
   })
 });
 
+export const DoctorResponseSchema = z.object({
+  data: DoctorSchema,
+  meta: z.object({})
+});
+
 export type Doctor = z.infer<typeof DoctorSchema>;
 export type DoctorsResponse = z.infer<typeof DoctorsResponseSchema>;
+export type DoctorResponse = z.infer<typeof DoctorResponseSchema>;
 export type Category = z.infer<typeof CategorySchema>;
 export type DoctorImage = z.infer<typeof DoctorImageSchema>;
 export type ImageFormat = z.infer<typeof ImageFormatSchema>;
